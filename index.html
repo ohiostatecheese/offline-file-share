@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Offline File Share</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📁 Offline File Share</h1>
+            <p class="tagline">Sync files between devices peer-to-peer</p>
+        </header>
+
+        <div class="main-content">
+            <!-- Connection Panel -->
+            <section class="panel connection-panel">
+                <h2>Connection</h2>
+                <div class="connection-status">
+                    <div class="status-indicator" id="statusIndicator"></div>
+                    <span id="statusText">Offline</span>
+                </div>
+                
+                <div class="input-group">
+                    <input 
+                        type="text" 
+                        id="deviceId" 
+                        placeholder="Your Device ID" 
+                        readonly
+                    >
+                    <button id="copyDeviceId" class="btn btn-secondary">Copy ID</button>
+                </div>
+
+                <div class="input-group">
+                    <input 
+                        type="text" 
+                        id="peerId" 
+                        placeholder="Enter peer device ID"
+                    >
+                    <button id="connectBtn" class="btn btn-primary">Connect</button>
+                </div>
+
+                <div id="connectedPeers" class="peers-list">
+                    <h3>Connected Devices</h3>
+                    <ul id="peersList"></ul>
+                </div>
+            </section>
+
+            <!-- File Upload Panel -->
+            <section class="panel upload-panel">
+                <h2>Share Files</h2>
+                <div class="drop-zone" id="dropZone">
+                    <p>Drag files here or click to browse</p>
+                    <input type="file" id="fileInput" multiple hidden>
+                </div>
+                <p class="file-size-limit">Max file size: 100MB per file</p>
+            </section>
+
+            <!-- Shared Files Panel -->
+            <section class="panel files-panel">
+                <h2>Shared Files</h2>
+                <div id="filesList" class="files-list">
+                    <p class="empty-state">No files shared yet</p>
+                </div>
+            </section>
+
+            <!-- Downloaded Files Panel -->
+            <section class="panel downloads-panel">
+                <h2>Incoming Files</h2>
+                <div id="incomingFiles" class="files-list">
+                    <p class="empty-state">No incoming files</p>
+                </div>
+            </section>
+        </div>
+
+        <footer>
+            <p>All transfers are peer-to-peer and encrypted. No data stored on servers.</p>
+            <button id="clearStorage" class="btn btn-danger">Clear Local Storage</button>
+        </footer>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
